@@ -1,0 +1,705 @@
+/* Reset */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    height: 100vh;
+    font-family: 'montserrat-regular';
+    font-size: 16px;
+    background: #0f0f0f;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff;
+    transition: background 0.5s ease, color 0.3s ease;
+}
+
+/* ..........................scrollbar........................ */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #444;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffcc00;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #eee;
+}
+
+/* ............................ */
+
+
+/* header et navigation */
+header {
+    display: flex;
+    justify-content: center;
+}
+
+.burger_menu {
+    display: none;
+    cursor: pointer;
+}
+
+.burger_menu div {
+    width: 30px;
+    height: 4px;
+    background-color: #ffcc00;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+:focus {
+    outline: none;
+}
+
+.active {
+    border-bottom: #ffcc00 2px solid;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 35em;
+    width: 100%;
+    padding: 0.2em 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    margin: 0.5em auto 0;
+    border-radius: 9999px;
+    gap: 3.5em;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out, transform 0.4s ease, opacity 0.4s ease;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 0 8px rgba(241, 237, 237, 0.6);
+}
+
+.navbar:hover {
+    background: rgba(0, 0, 0, 1);
+    box-shadow: inset 0 0 18px rgba(241, 237, 237, 0.6);
+}
+
+.navbar_menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 3.5em;
+}
+
+.navbar a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+
+.logo_portefolio img{
+    width: 3em;
+    height: 3em;
+}
+
+.home_icon:hover path, 
+body.light .home_icon:hover path {
+    stroke: #ffcc00 !important;
+}
+
+
+/* interrupteur de basculement thème */
+.toggle-switch-label-input {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 9999px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-switch-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.toggle-switch-track {
+    width: 2.9em;
+    height: 1.5em;
+    background-color: #666;
+    border-radius: 9999px;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+body.light .toggle-switch-track {
+    background-color: #bbb;
+}
+
+.toggle-switch-track::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background-color: #fff;
+    border: 1px solid #666;
+    border-radius: 9999px;
+    height: 1.25em;
+    width: 1.25em;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body.light .toggle-switch-track::after {
+    background-color: #111;
+    border-color: #bbb;
+}
+
+.toggle-switch-input:checked+.toggle-switch-track {
+    background-color: #ffcc00;
+}
+
+.toggle-switch-input:checked+.toggle-switch-track::after {
+    transform: translateX(100%);
+    background-color: #111;
+    border-color: #ffcc00;
+}
+
+body.light .toggle-switch-input:checked+.toggle-switch-track {
+    background-color: #333;
+}
+
+body.light .toggle-switch-input:checked+.toggle-switch-track::after {
+    background-color: #ffcc00;
+    border-color: #333;
+}
+
+.toggle-switch-input:focus+.toggle-switch-track {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 204, 0, 0.5);
+}
+
+.toggle-switch-sun-moon {
+    font-size: 1em;
+    font-weight: 600;
+}
+
+body.light .toggle-switch-sun-moon {
+    color: #ffcc00;
+}
+
+/* scroll to top bouton */
+#scrollTopBtn {
+    position: fixed;
+    background-color: transparent;
+    z-index: 1000;
+    bottom: 2em;
+    right: 2em;
+    width: 3em;
+    height: 3em;
+    border: 2px whitesmoke solid;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease-in-out, fill 0.3s ease, color 0.3s ease-in-out;
+    animation: moveButton 3s infinite;
+}
+
+#scrollTopBtn:hover {
+    opacity: 1 !important;
+    animation: none;
+}
+
+#scrollTopBtn:active {
+    transform: scale(0.9);
+}
+
+@keyframes moveButton {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 0;
+    }
+}
+
+/* change la couleur du bouton scroll to Top  */
+#scrollTopBtn:hover svg #path1 {
+    fill: #333;
+}
+
+#scrollTopBtn:hover svg #path2 {
+    fill: #ffcc00;
+}
+
+
+/* info bulle */
+[data-title] {
+    position: relative;
+}
+
+[data-title]::after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: -2.2em;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 0.4em 0.7em;
+    transform: translateX(-30%);
+    font-family: 'montserrat-regular';
+    font-size: 0.8rem !important;
+    font-weight: 500;
+    border-radius: 1.5em;
+    white-space: nowrap;
+    display: none;
+    border: 1px whitesmoke solid;
+}
+
+#home[data-title]::after {
+    transform: translateX(-27%) !important;
+    bottom: -1.5em !important;
+}
+
+#scrollTopBtn[data-title]::after {
+    transform: translateX(-20%);
+    bottom: 3.6em !important;
+}
+
+[data-title]:hover::after {
+    display: block !important;
+}
+
+
+/* Section moi-même */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: start;
+    padding: 9em 1.2em 6em;
+    gap: 3em;
+    background: rgba(1, 1, 1, 0.9);
+}
+
+.fullname {
+    font-size: 2.5em;
+    line-height: 1.5;
+}
+
+.role {
+    font-size: 1.6em;
+    line-height: 1.5;
+    color: #ffcc00;
+    margin: 1em 0;
+}
+
+.after-identity {
+    backdrop-filter: blur(12px);
+}
+
+.intro {
+    font-size: 1em;
+    line-height: 1.5;
+    max-width: 37.5em;
+    margin: 1em auto 4em;
+    text-align: justify;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4em;
+}
+
+.contact-links a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: #0088aa;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: transform 0.3s ease-out;
+}
+
+.contact-links a:hover,
+.contact-links a:hover path,
+.contact-links a:hover rect,
+.contact-links a:hover circle,
+.navbar a:hover,
+body.light .navbar a:hover {
+    color: #ffcc00;
+    fill: #ffcc00;
+}
+
+.contact-links a:active, 
+.navbar a:active, 
+body.light .navbar a:active,
+#contact button:active, 
+.buttons a:active {
+    transform: scale(0.95);
+}
+
+body.light #mail {
+    stroke: whitesmoke;
+}
+
+.cv-container {
+    position: relative;
+    display: inline-block;
+}
+
+#cv-preview {
+    position: absolute;
+    top: -14em;
+    right: -3em;
+    height: 25em;
+    width: 20em;
+    border: 1px solid #ffcc00;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: none;
+    /* z-index: 1; */
+    border-radius: 8px;
+}
+
+
+/*Section Projets */
+.projects {
+    padding: 6em 1.3em;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.projects h2 {
+    font-size: 2em;
+    margin-bottom: 2em;
+}
+
+.project-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5em;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1em;
+    width: 25em;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0px 20px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    padding: 1.2em;
+    border-radius: 1em;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.project:hover {
+    transform: scale(1.05);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.project img {
+    width: 100%;
+    border-radius: 0.6em;
+    margin-bottom: 1em;
+}
+
+.allison {
+    font-family: 'Allison', cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2em;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.buttons a {
+    display: inline-block;
+    margin: 0.7em 0.5em 0;
+    padding: 0.7em;
+    width: 8.5em;
+    height: 2.6em;
+    background-color: #ffcc00;
+    color: #111;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.media-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.preview {
+    width: 100%;
+    display: block;
+    transition: opacity 0.3s ease;
+    border-radius: 8px;
+}
+
+.preview-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    pointer-events: none;
+    border-radius: 8px;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    display: none;
+}
+
+/* Section Contact */
+#contact {
+    padding: 4em 1.2em;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 1.5em;
+    line-height: 1.5;
+    margin-bottom: 1.5em;
+}
+
+#contact form {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#contact input {
+    width: 18em;
+    border-radius: 9999px !important;
+}
+
+#contact input, 
+#contact textarea {
+    padding: 0.8em;
+    border: none;
+    border-radius: 6px;
+    font-family: 'montserrat-regular';
+    font-size: 1em;
+    box-shadow: inset 0 0 4px rgba(156, 155, 155, 0.6);
+}
+
+#contact input:hover, 
+#contact textarea:hover {
+    background: whitesmoke;
+    box-shadow: inset 0 0 2px #ffcc00;
+}
+
+#contact input:focus, 
+#contact textarea:focus {
+    outline: none;
+    background: whitesmoke;
+    box-shadow: inset 0 0 2px #ffcc00;
+}
+
+#contact button {
+    background: #ffcc00;
+    color: #111;
+    font-family: 'montserrat-regular';
+    font-size: 1em;
+    font-weight: bold;
+    padding: 0.7em;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-left: 0.5em;
+}
+
+.buttons a:hover,
+#contact button:hover {
+    background-color: #0088aa;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3em;
+    margin: 2em auto 1em;
+}
+
+.logo_portefolio.footer img {
+    width: 8em;
+    height: 8em;
+    cursor: pointer;
+}
+
+footer .copyrights {
+    font-size: 0.9em;
+    margin-bottom: 1em;
+}
+
+
+/* Thème clair */
+body.light {
+    background: #fff;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #111;
+    transition: background 0.5s ease, color 0.3s ease;
+}
+
+body.light .navbar {
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 0 8px rgba(29, 28, 28, 0.6);
+}
+
+body.light .navbar:hover {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: inset 0 0 18px rgba(29, 28, 28, 0.6);
+}
+
+body.light .navbar a {
+    color: #111;
+}
+
+body.light .hero {
+    background: rgba(230, 230, 230, 0.4);
+}
+
+body.light .projects {
+    background: rgba(230, 230, 230, 0.2);
+}
+
+body.light .project {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+body.light .project:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.7);
+}
+
+
+body.light #scrollTopBtn {
+    border: 2px #333 solid;
+}
+
+body.light .home_icon path {
+    stroke: #111 !important;
+}
+
+/* Texte sombre pour le thème clair */
+body.light .fullname,
+body.light .intro,
+body.light #contact h2,
+body.light .projects h2,
+body.light .role {
+    color: #111;
+}
+
+body.light .allison {
+    color: #111;
+}
+
+body.light .contact-links a {
+    color: #0088aa;
+}
+
+body.light .contact-links a:hover {
+    color: #ffcc00;
+}
+
+
+
+
+
+
+/* tablette et mobile  */
+@media (max-width: 1024px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 656px) {
+    body {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 450px) {
+    .navbar {
+        width: 335px;
+    }
+
+    .navbar,
+    .navbar_menu {
+        gap: 2.2em;
+    }
+
+    .logo_portefolio[data-title]::after {
+        transform: translateX(0%);
+    }
+
+    .toggle-switch-label-input[data-title]::after {
+        transform: translateX(-70%);
+    }
+}
