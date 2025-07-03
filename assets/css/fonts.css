@@ -1,6 +1,8 @@
 @font-face {
     font-family: 'Allison';
-    src: url('/assets/fonts/Allison/Allison-Regular.ttf') format('truetype');
+    src: url('../fonts/Allison/Allison-Regular.ttf') format('truetype'),
+         url('../fonts/Allison/Allison-Regular.ttf') format('woff2'),
+         url('../fonts/Allison/Allison-Regular.ttf') format('woff');
     font-weight: normal;
     font-style: normal;
 }

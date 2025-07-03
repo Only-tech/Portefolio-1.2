@@ -118,9 +118,9 @@ const cvPreview = document.getElementById('cv-preview');
 const cvContainer = document.querySelector('.cv-container');
 
 cvContainer.addEventListener('mouseenter', () => {
-  cvPreview.style.display = 'block';
+    cvPreview.style.display = 'block';
 });
 
 cvContainer.addEventListener('mouseleave', () => {
-  cvPreview.style.display = 'none';
+    cvPreview.style.display = 'none';
 });
