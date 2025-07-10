@@ -346,7 +346,7 @@ body.light .toggle-switch-sun-moon {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 4em;
+  gap: 2.4em;
 }
 
 .contact-links a {
@@ -361,6 +361,7 @@ body.light .toggle-switch-sun-moon {
   transition: transform 0.3s ease-out;
 }
 
+/* change la couleur des svg */
 .contact-links a:hover,
 .contact-links a:hover path,
 .contact-links a:hover rect,
@@ -369,6 +370,11 @@ body.light .toggle-switch-sun-moon {
 body.light .navbar a:hover {
   color: #ffcc00;
   fill: #ffcc00;
+}
+
+.cv-container:hover rect:first-child {
+  fill: none !important;
+  stroke: #ffcc00;
 }
 
 .contact-links a:active,
