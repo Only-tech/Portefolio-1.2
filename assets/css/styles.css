@@ -215,9 +215,8 @@ body.light .toggle-switch-sun-moon {
 /* scroll to top bouton */
 #scrollProgressWrapper {
   position: fixed;
-  bottom: 0;
-  right: 0;
-  margin: 1.75rem;
+  bottom: 2em;
+  right: 2em;
   z-index: 1001;
   display: none;
   width: 3em;
