@@ -39,7 +39,7 @@ body.light::-webkit-scrollbar-track {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #eee;
+  background: #0088aa;
 }
 
 /* ............................ */
@@ -179,26 +179,26 @@ body.light .toggle-switch-track::after {
   border-color: #bbb;
 }
 
-.toggle-switch-input:checked + .toggle-switch-track {
+.toggle-switch-input:checked+.toggle-switch-track {
   background-color: #ffcc00;
 }
 
-.toggle-switch-input:checked + .toggle-switch-track::after {
+.toggle-switch-input:checked+.toggle-switch-track::after {
   transform: translateX(100%);
   background-color: #111;
   border-color: #ffcc00;
 }
 
-body.light .toggle-switch-input:checked + .toggle-switch-track {
+body.light .toggle-switch-input:checked+.toggle-switch-track {
   background-color: #333;
 }
 
-body.light .toggle-switch-input:checked + .toggle-switch-track::after {
+body.light .toggle-switch-input:checked+.toggle-switch-track::after {
   background-color: #ffcc00;
   border-color: #333;
 }
 
-.toggle-switch-input:focus + .toggle-switch-track {
+.toggle-switch-input:focus+.toggle-switch-track {
   outline: none;
   box-shadow: 0 0 0 2px rgba(255, 204, 0, 0.5);
 }
@@ -213,22 +213,39 @@ body.light .toggle-switch-sun-moon {
 }
 
 /* scroll to top bouton */
-#scrollTopBtn {
+#scrollProgressWrapper {
   position: fixed;
-  background-color: transparent;
-  z-index: 1000;
-  bottom: 2em;
-  right: 2em;
+  bottom: 0;
+  right: 0;
+  margin: 1.75rem;
+  z-index: 1001;
+  display: none;
   width: 3em;
   height: 3em;
-  border: 2px whitesmoke solid;
-  border-radius: 50%;
   cursor: pointer;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#scrollProgressSvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3em;
+  height: 3em;
+}
+
+#scrollTopBtn {
   transition: opacity 0.3s ease-in-out, fill 0.3s ease, color 0.3s ease-in-out;
   animation: moveButton 3s infinite;
+  position: relative;
+  background-color: transparent;
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
 }
 
 #scrollTopBtn:hover {
@@ -241,6 +258,7 @@ body.light .toggle-switch-sun-moon {
 }
 
 @keyframes moveButton {
+
   0%,
   100% {
     transform: translateY(0);
@@ -248,7 +266,7 @@ body.light .toggle-switch-sun-moon {
   }
 
   50% {
-    transform: translateY(20px);
+    transform: translateY(8px);
     opacity: 0;
   }
 
@@ -259,7 +277,7 @@ body.light .toggle-switch-sun-moon {
 
 /* change la couleur du bouton scroll to Top  */
 #scrollTopBtn:hover svg #path1 {
-  fill: #333;
+  fill: #0088aa;
 }
 
 #scrollTopBtn:hover svg #path2 {
@@ -294,7 +312,7 @@ body.light .toggle-switch-sun-moon {
 }
 
 #scrollTopBtn[data-title]::after {
-  transform: translateX(-20%);
+  transform: translateX(-50%);
   bottom: 3.6em !important;
 }
 
@@ -670,10 +688,6 @@ body.light .project {
 body.light .project:hover {
   transform: translateY(-4px);
   background: rgba(255, 255, 255, 0.7);
-}
-
-body.light #scrollTopBtn {
-  border: 2px #333 solid;
 }
 
 body.light .home_icon path {
