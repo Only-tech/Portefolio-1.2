@@ -222,7 +222,6 @@ body.light .toggle-switch-sun-moon {
   width: 3em;
   height: 3em;
   cursor: pointer;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -245,6 +244,9 @@ body.light .toggle-switch-sun-moon {
   border-radius: 50%;
   border: none;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #scrollTopBtn:hover {
