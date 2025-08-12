@@ -213,61 +213,60 @@ body.light .toggle-switch-sun-moon {
 }
 
 /* scroll to top bouton */
-#scrollProgressWrapper {
+#scrollTopBtn {
   position: fixed;
   bottom: 2em;
   right: 2em;
   z-index: 1001;
   display: none;
-  width: 3em;
-  height: 3em;
+  width: 3.5em;
+  height: 3.5em;
   cursor: pointer;
   justify-content: center;
   align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  /* backdrop-filter: blur(8px); */
+  border-radius: 50%;
+  border: none;
+}
+
+#scrollTopBtn:hover #progressActive {
+  stroke: #0088aa;
+}
+
+#scrollTopBtn:hover #scrollArrow {
+  opacity: 1 !important;
+  animation: none;
+}
+
+#scrollTopBtn:active #scrollArrow {
+  transform: scale(0.9);
 }
 
 #scrollProgressSvg {
   position: absolute;
   top: 0;
   left: 0;
-  width: 3em;
-  height: 3em;
+  width: 3.5em;
+  height: 3.5em;
 }
 
-#scrollTopBtn {
+#scrollArrow {
   transition: opacity 0.3s ease-in-out, fill 0.3s ease, color 0.3s ease-in-out;
   animation: moveButton 3s infinite;
   position: relative;
-  background-color: transparent;
-  width: 3em;
-  height: 3em;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#scrollTopBtn:hover {
-  opacity: 1 !important;
-  animation: none;
-}
-
-#scrollTopBtn:active {
-  transform: scale(0.9);
 }
 
 @keyframes moveButton {
 
   0%,
   100% {
-    transform: translateY(0);
+    transform: translateY(-4px);
     opacity: 1;
   }
 
   50% {
-    transform: translateY(8px);
+    transform: translateY(4px);
     opacity: 0;
   }
 
@@ -277,11 +276,11 @@ body.light .toggle-switch-sun-moon {
 }
 
 /* change la couleur du bouton scroll to Top  */
-#scrollTopBtn:hover svg #path1 {
+#scrollTopBtn:hover #scrollArrow #path1 {
   fill: #0088aa;
 }
 
-#scrollTopBtn:hover svg #path2 {
+#scrollTopBtn:hover #scrollArrow #path2 {
   fill: #ffcc00;
 }
 
@@ -313,8 +312,7 @@ body.light .toggle-switch-sun-moon {
 }
 
 #scrollTopBtn[data-title]::after {
-  transform: translateX(-50%);
-  bottom: 3.6em !important;
+  bottom: 3.8em !important;
 }
 
 [data-title]:hover::after {
@@ -406,10 +404,6 @@ body.light .navbar a:active,
 #contact button:active,
 .buttons a:active {
   transform: scale(0.95);
-}
-
-body.light #mail {
-  stroke: whitesmoke;
 }
 
 .cv-container {
@@ -714,6 +708,10 @@ body.light .contact-links a {
 
 body.light .contact-links a:hover {
   color: #ffcc00;
+}
+
+body.light #scrollTopBtn {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* tablette et mobile  */

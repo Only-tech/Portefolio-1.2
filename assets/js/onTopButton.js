@@ -1,10 +1,10 @@
 window.addEventListener("scroll", function() {
-    let scrollProgressWrapper = document.getElementById("scrollProgressWrapper");
+    let scrollTopBtn = document.getElementById("scrollTopBtn");
 
     if (window.scrollY > 500) {
-        scrollProgressWrapper.style.display = "flex";
+        scrollTopBtn.style.display = "flex";
     } else {
-        scrollProgressWrapper.style.display = "none";
+        scrollTopBtn.style.display = "none";
     }
 });
 
